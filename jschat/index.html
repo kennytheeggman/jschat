@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="static/client.js"></script>
+        <link rel="text/html" href="page.css">
+        <style>
+            body {
+                margin:0;
+                padding:0;
+            }
+            .input {
+                position:fixed;
+                bottom:0;
+                width:100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                height:5%;
+            }
+            .inputbox {
+                width:100%;
+                align-self: stretch;
+                padding:20px;
+            }
+            .send {
+                width:100px;
+            }
+            .namebox {
+                width:100px;
+                padding:20px;
+            }
+            .messagebox {
+                position:fixed;
+                font-family: sans-serif;
+                width:100%;
+                height:95%;
+                overflow: auto;
+                border:solid gray;
+                box-sizing: border-box;
+                display: flex;
+                flex-direction: column;
+                justify-content:space-between;
+            }
+            th {
+                text-align: left;
+            }
+            table {
+                width:100%;
+                border-collapse: collapse;
+            }
+            tr:nth-child(odd) {background-color: #f2f2f2;}
+            .user {
+                width:10%;
+            }
+            tr {
+                height:20px;
+                width:100%;
+                
+            }
+        </style>
+    </head>
+    <body>
+        <div id="messages" class="messagebox">
+            <table id="msgcont">
+            </table>
+        </div>
+        <div id="input" class="input">
+            <input type="text" name="namebox" id="namebox" class="namebox" placeholder="Username">
+            <input type="text" name="inputbox" id="inputbox" class="inputbox" placeholder="Message">
+            <input type="button" name="sendbtn" id="send" onclick="send()" class="send" value="Send">
+        </div>
+    </body>
+</html>
